@@ -64,7 +64,7 @@ var da_Obj = {
 		else{
 			return false;
 		}
-	},
+	},//create me obselete, might remove.
 	query_me: function(query){
 
 		var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + query + "&api_key=77a0da655a8449369635934c78d5ec4b&limit=10";
@@ -76,6 +76,32 @@ var da_Obj = {
           //console.log(response)
 
           for(var obj in response.data){
+
+          	var mo_div = $("<div>");
+          	var dis_img = $("<img>");
+          	var still_img = response.data[obj].images.fixed_height_still.url;
+          	var animate_img = response.data[obj].images.fixed_height.url;
+
+          	//create container div
+			mo_div.addClass("ajax_result");
+			mo_div.html(query + "<br>");
+			
+
+			//create img element
+			dis_img.addClass("make_me_move")
+			dis_img.attr("src",still_img)
+			dis_img.attr("not_moving",true);
+			dis_img.attr("still",still_img);
+			dis_img.attr("animate",animate_img);
+			dis_img.attr("alt",query + "_img_" + obj);
+
+			//add img element to container div
+			mo_div.append(dis_img);
+
+
+			//works: mo_div.append(response.data[obj].images.fixed_height.url,response.data[obj].images.fixed_height_still.url)
+
+			$("#da_ajax").append(mo_div);
 
             /*if(obj === "Poster"){
               
@@ -89,12 +115,12 @@ var da_Obj = {
 
             };*/
 
+            //this is useful info when uncommented
             //$("#movies-view").append(obj + ": " + response[obj] + "<br>");
-            console.log(obj + ": " + response.data[obj].images.fixed_height.url + "; "
-            	+ response.data[obj].images.fixed_height_still.url + "<br>");
+            //console.log(obj + ": " + response.data[obj].images.fixed_height.url + "; "
+            //	+ response.data[obj].images.fixed_height_still.url + "<br>");
 
           }
-          //$("#movie-view").append(JSON.stringify(response));
 
         });
 
@@ -108,20 +134,21 @@ $(document).on("click",".me_button",function(){
 	//console.log("Been clicked, my guy!");
 
 	var dis_text = $(this).text()
-
+	
+	da_Obj.query_me(dis_text)
 	//test to see if this ajax result already exists
 
-	var test = $("#da_ajax").children().text();
+	//var test = $("#da_ajax").children().text();
 
 	//console.log(test.indexOf(dis_text));
 
-	var check = da_Obj.create_me_maybe(dis_text,test);
+	//var check = da_Obj.create_me_maybe(dis_text,test);
 
 	//console.log(check);
 
 	//end test
 
-	if(check){
+	/*if(check){
 
 		var mo_div = $("<div>");
 
@@ -140,7 +167,7 @@ $(document).on("click",".me_button",function(){
 
 		alert("This already exists!")
 
-	}
+	}*/
 
 	
 
@@ -161,6 +188,36 @@ $(document).on("click","#form_button",function(){
 	da_Obj.push_Me_Maybe(title);
 
 	da_Obj.gimme_buttons(da_Obj.mah_buttons);
+
+});
+
+$(document).on("click",".make_me_move",function(){
+
+	if($(this).attr("not_moving") === "true"){
+
+		$(this).attr("not_moving",false);
+
+		console.log("inside!")
+
+		var animated_src = $(this).attr("animate");
+
+		//console.log(animated_src)
+
+		$(this).attr("src",animated_src);
+
+	}
+	else{
+
+		console.log("now in here!")
+
+		var still_src = $(this).attr("still");
+
+		$(this).attr("src",still_src);
+
+		$(this).attr("not_moving",true);
+
+	}
+	//console.log($(this).attr("not_moving"));
 
 });
 
