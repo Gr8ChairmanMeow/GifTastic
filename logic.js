@@ -67,7 +67,7 @@ var da_Obj = {
 	},//create me obselete, might remove.
 	query_me: function(query){
 
-		var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + query + "&api_key=77a0da655a8449369635934c78d5ec4b&limit=10";
+		var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + query + "&api_key=77a0da655a8449369635934c78d5ec4b&rating=g&limit=10";
 
 		$.ajax({
           url: queryURL,
@@ -79,13 +79,9 @@ var da_Obj = {
 
           	var mo_div = $("<div>");
           	var dis_img = $("<img>");
+          	var rating = response.data[obj].rating;
           	var still_img = response.data[obj].images.fixed_height_still.url;
-          	var animate_img = response.data[obj].images.fixed_height.url;
-
-          	//create container div
-			mo_div.addClass("ajax_result");
-			mo_div.html(query + "<br>");
-			
+          	var animate_img = response.data[obj].images.fixed_height.url;			
 
 			//create img element
 			dis_img.addClass("make_me_move")
@@ -95,8 +91,11 @@ var da_Obj = {
 			dis_img.attr("animate",animate_img);
 			dis_img.attr("alt",query + "_img_" + obj);
 
-			//add img element to container div
+			//populate container div
+			mo_div.addClass("ajax_result");
+			mo_div.html(query + "<br>");
 			mo_div.append(dis_img);
+			mo_div.append("<br>" + "rating: " + rating);
 
 
 			//works: mo_div.append(response.data[obj].images.fixed_height.url,response.data[obj].images.fixed_height_still.url)
@@ -132,6 +131,8 @@ var da_Obj = {
 $(document).on("click",".me_button",function(){
 
 	//console.log("Been clicked, my guy!");
+
+	$("#da_ajax").html("");
 
 	var dis_text = $(this).text()
 	
