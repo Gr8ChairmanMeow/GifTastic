@@ -1,0 +1,60 @@
+*{
+	box-sizing:border-box;
+}
+
+/*classes below*/
+.me_button{
+	position:relative;
+	float:left;
+	border:blue dotted 2px;
+	margin:0.5em 2em;
+}
+
+.ajax_result{
+	position:relative;
+	float:left;
+	border:pink dotted 6px;
+	margin:0.5em 2em;
+}
+
+/*ids below*/
+
+#body{
+
+	border:orange dotted 7px;
+	overflow:auto;
+
+}
+
+#da_ajax{
+
+	border:pink dotted 7px;
+	overflow:auto;
+
+}
+
+#da_buttons{
+	position:relative;
+	height:20em;
+	border:red dotted 3px;
+	float:left;
+}
+
+#da_input{
+	margin:1em;
+}
+
+#dis_form{
+	padding:1em;
+}
+
+#form_button{
+	float:right;
+	margin:1em;
+}
+
+#mo_buttons{
+	position:relative;
+	float:right;
+	border:green dotted 4px;
+}
