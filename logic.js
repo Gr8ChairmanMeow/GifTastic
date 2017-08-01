@@ -1,5 +1,5 @@
 var da_Obj = {
-	mah_buttons: ["Puppies","Kittens","Pandas","Sloth","Tigers","Vaporwave","Lions","Pitbulls","Parrot","Wolf"],
+	mah_buttons: ["Puppies","Kittens","Pandas","Sloth","Tigers","Vaporwave","Lions","Pitbulls","Parrot","Wolf","Falcon Punch"],
 	gimme_buttons: function(Arr){
 
 		$("#da_buttons").empty();
@@ -107,11 +107,11 @@ var da_Obj = {
             //console.log(obj + ": " + response.data[obj].images.fixed_height.url + "; "
             //	+ response.data[obj].images.fixed_height_still.url + "<br>");
 
-          }
+          }//end of for loop
 
-        });
+        });//end of .done
 
-	},
+	},//end of query_me
 
 };//end of da_Obj
 	
