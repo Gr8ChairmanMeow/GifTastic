@@ -1,5 +1,5 @@
 var da_Obj = {
-	mah_buttons: ["Bubbles","Kittens","Sunset","California","Vaporwave"],
+	mah_buttons: ["Puppies","Kittens","Pandas","Sloth","Tigers","Vaporwave","Lions","Pitbulls","Parrot","Wolf"],
 	gimme_buttons: function(Arr){
 
 		$("#da_buttons").empty();
@@ -51,7 +51,7 @@ var da_Obj = {
 		}
 		else{
 
-			alert("My guy, dead ass this already in the array!");
+			alert("Already in the array!");
 
 		}
 
@@ -64,7 +64,7 @@ var da_Obj = {
 		else{
 			return false;
 		}
-	},//create me obselete, might remove.
+	},//create me obselete, might remove. Update: leaving for reference.
 	query_me: function(query){
 
 		var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + query + "&api_key=77a0da655a8449369635934c78d5ec4b&rating=g&limit=10";
@@ -102,18 +102,6 @@ var da_Obj = {
 
 			$("#da_ajax").append(mo_div);
 
-            /*if(obj === "Poster"){
-              
-              response[obj] = "<img src='" + response[obj] +"' alt='" + movie + "'>"
-
-            }
-
-            if(obj === "Ratings"){
-
-              response[obj] = JSON.stringify(response[obj]);
-
-            };*/
-
             //this is useful info when uncommented
             //$("#movies-view").append(obj + ": " + response[obj] + "<br>");
             //console.log(obj + ": " + response.data[obj].images.fixed_height.url + "; "
@@ -126,18 +114,18 @@ var da_Obj = {
 	},
 
 };//end of da_Obj
-//console.log("Test")
 	
 $(document).on("click",".me_button",function(){
 
-	//console.log("Been clicked, my guy!");
+	//console.log("Been clicked!");
 
 	$("#da_ajax").html("");
 
 	var dis_text = $(this).text()
 	
 	da_Obj.query_me(dis_text)
-	//test to see if this ajax result already exists
+
+	//test to see if this ajax result already exists Update: obselete but useful code
 
 	//var test = $("#da_ajax").children().text();
 
@@ -180,11 +168,7 @@ $(document).on("click",".me_button",function(){
 
 $(document).on("click","#form_button",function(){
 
-	//console.log("Dead ass, don't click me again!")
-
 	var title = da_Obj.titleCase($("#da_input").val().trim());
-
-	//console.log("Ayo MA! Check this out: " + title);
 
 	da_Obj.push_Me_Maybe(title);
 
@@ -218,7 +202,7 @@ $(document).on("click",".make_me_move",function(){
 		$(this).attr("not_moving",true);
 
 	}
-	//console.log($(this).attr("not_moving"));
+	//console.log($(this).attr("not_moving")); Check to see if boolean logic is working
 
 });
 

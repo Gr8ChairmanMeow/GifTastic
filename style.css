@@ -2,18 +2,26 @@
 	box-sizing:border-box;
 }
 
+body{	
+	background:black;
+	color:lightgrey;
+}
+
 /*classes below*/
 .me_button{
 	position:relative;
+	background:#808000;
+	color:white;
+	font-weight:bold;
 	float:left;
-	border:blue dotted 2px;
+	border:green solid 2px;
 	margin:0.5em 2em;
 }
 
 .ajax_result{
 	position:relative;
 	float:left;
-	border:pink dotted 6px;
+	border:pink solid 6px;
 	margin:0.5em 2em;
 }
 
@@ -21,14 +29,15 @@
 
 #body{
 
-	border:orange dotted 7px;
+	border:#000080 solid 7px;
 	overflow:auto;
+	background:grey;
 
 }
 
 #da_ajax{
 
-	border:pink dotted 7px;
+	border:white dotted 7px;
 	overflow:auto;
 
 }
@@ -36,8 +45,9 @@
 #da_buttons{
 	position:relative;
 	height:20em;
-	border:red dotted 3px;
+	border:red solid 3px;
 	float:left;
+	width:60em;
 }
 
 #da_input{
@@ -56,5 +66,5 @@
 #mo_buttons{
 	position:relative;
 	float:right;
-	border:green dotted 4px;
+	border:green solid 4px;
 }
